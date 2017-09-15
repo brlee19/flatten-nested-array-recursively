@@ -1,11 +1,7 @@
-// function flatten(array) {
-//   return array.reduce(function(newArr, element) {
-//       return newArr.concat(element);
-//   }, []);
-// }
-
 function flatten (array) {
   var flat = [];
+
+  (function flattenRecursively (array) {
     for (var i = 0; i < array.length; i++) {
       if (Array.isArray(array[i])) {
         flattenRecursively(array[i]);
@@ -14,7 +10,7 @@ function flatten (array) {
       }
     }
   }) (array);
-  
+
   return flat;
 }
 
