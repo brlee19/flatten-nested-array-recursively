@@ -2,13 +2,13 @@ function flatten (array) {
   var flat = [];
 
   (function flattenRecursively (array) {
-    for (var i = 0; i < array.length; i++) {
-      if (Array.isArray(array[i])) {
-        flattenRecursively(array[i]);
+    array.forEach(function(element) {
+      if (Array.isArray(element)) {
+        flattenRecursively(element);
       } else {
-        flat.push(array[i]);
+        flat.push(element);
       }
-    }
+    });
   }) (array);
 
   return flat;
